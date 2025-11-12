@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Evan R - Personal Website</title>
   <style>
     body {
@@ -11,51 +11,96 @@
       padding: 0;
       background-color: #f8f9fa;
       color: #333;
+      scroll-behavior: smooth;
     }
+
+    /* Navbar */
+    nav {
+      background-color: #2b2d42;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      padding: 1rem;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.2s ease;
+    }
+
+    nav a:hover {
+      color: #ef233c;
+    }
+
     header {
       background-color: #2b2d42;
       color: white;
       text-align: center;
-      padding: 2rem 1rem;
+      padding: 4rem 1rem 2rem 1rem;
     }
+
     section {
       max-width: 800px;
       margin: 2rem auto;
       padding: 0 1rem;
     }
+
     h1, h2 {
       margin-bottom: 0.5rem;
     }
-    a {
-      color: #2b2d42;
-      text-decoration: none;
-    }
+
     footer {
       text-align: center;
       padding: 1rem;
       color: #777;
     }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+      margin-bottom: 0.5rem;
+    }
   </style>
 </head>
+
 <body>
-  <header>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#projects">Projects</a>
+    <a href="#experience">Experience</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <header id="home">
     <h1>Evan R</h1>
     <p>Industrial Engineer | Math Enthusiast | Researcher</p>
   </header>
 
-  <section>
-    <h2>About Me</h2>
-    <p>Hello! I’m Evan, an industrial engineering and math student passionate about operations, human factors, and data-driven design.</p>
-
+  <section id="projects">
     <h2>Projects</h2>
     <ul>
       <li><a href="#">Order Services Internship @ Toro</a></li>
       <li><a href="#">Human Factors Research</a></li>
       <li><a href="#">Amtrak Communication Project</a></li>
     </ul>
+  </section>
 
+  <section id="experience">
+    <h2>Experience</h2>
+    <p>Include your past work experience, internships, and research roles here.</p>
+  </section>
+
+  <section id="contact">
     <h2>Contact</h2>
-    <p>Find me on <a href="https://github.com/yourusername">GitHub</a> or email me at you@example.com</p>
+    <p>Find me on <a href="https://github.com/yourusername" target="_blank">GitHub</a> or email me at <a href="mailto:you@example.com">you@example.com</a></p>
   </section>
 
   <footer>
@@ -63,3 +108,4 @@
   </footer>
 </body>
 </html>
+
