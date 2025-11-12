@@ -4,108 +4,90 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Evan R - Personal Website</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f8f9fa;
-      color: #333;
-      scroll-behavior: smooth;
-    }
-
-    /* Navbar */
-    nav {
-      background-color: #2b2d42;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      padding: 1rem;
-    }
-
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      transition: color 0.2s ease;
-    }
-
-    nav a:hover {
-      color: #ef233c;
-    }
-
-    header {
-      background-color: #2b2d42;
-      color: white;
-      text-align: center;
-      padding: 4rem 1rem 2rem 1rem;
-    }
-
-    section {
-      max-width: 800px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-    }
-
-    h1, h2 {
-      margin-bottom: 0.5rem;
-    }
-
-    footer {
-      text-align: center;
-      padding: 1rem;
-      color: #777;
-    }
-
-    ul {
-      list-style: none;
-      padding: 0;
-    }
-
-    li {
-      margin-bottom: 0.5rem;
-    }
-  </style>
+  <!-- ✅ Add Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#2b2d42',
+            accent: '#ef233c',
+          },
+        },
+      },
+    };
+  </script>
 </head>
 
-<body>
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#projects">Projects</a>
-    <a href="#experience">Experience</a>
-    <a href="#contact">Contact</a>
+
+<body class="font-sans bg-gray-50 text-gray-800 scroll-smooth">
+
+  <!-- Navbar -->
+  <nav class="bg-primary text-white sticky top-0 z-50 shadow-md">
+    <div class="max-w-5xl mx-auto flex justify-center gap-6 py-4">
+      <a href="#home" class="hover:text-accent font-medium">Home</a>
+      <a href="#projects" class="hover:text-accent font-medium">Projects</a>
+      <a href="#experience" class="hover:text-accent font-medium">Experience</a>
+      <a href="#contact" class="hover:text-accent font-medium">Contact</a>
+    </div>
   </nav>
 
-  <header id="home">
-    <h1>Evan R</h1>
-    <p>Industrial Engineer | Math Enthusiast | Researcher</p>
+  <!-- Header -->
+  <header id="home" class="bg-primary text-white text-center py-16">
+    <h1 class="text-4xl font-bold mb-2">Evan R</h1>
+    <p class="text-lg text-gray-200">Industrial Engineer | Math Enthusiast | Researcher</p>
   </header>
 
-  <section id="projects">
-    <h2>Projects</h2>
-    <ul>
-      <li><a href="#">Order Services Internship @ Toro</a></li>
-      <li><a href="#">Human Factors Research</a></li>
-      <li><a href="#">Amtrak Communication Project</a></li>
-    </ul>
+  <!-- Projects Section -->
+  <section id="projects" class="max-w-3xl mx-auto px-4 py-12">
+    <h2 class="text-2xl font-semibold mb-6 text-primary">Projects</h2>
+    <div class="grid gap-4">
+      <div class="bg-white rounded-xl shadow p-4 hover:shadow-lg transition">
+        <h3 class="font-semibold">Order Services Internship @ Toro</h3>
+        <p class="text-gray-600 text-sm mt-1">Improved process efficiency through operations analysis and workflow design.</p>
+      </div>
+      <div class="bg-white rounded-xl shadow p-4 hover:shadow-lg transition">
+        <h3 class="font-semibold">Human Factors Research</h3>
+        <p class="text-gray-600 text-sm mt-1">Conducted ergonomic studies using EMG sensors to optimize human-system interaction.</p>
+      </div>
+      <div class="bg-white rounded-xl shadow p-4 hover:shadow-lg transition">
+        <h3 class="font-semibold">Amtrak Communication Project</h3>
+        <p class="text-gray-600 text-sm mt-1">Explored passenger communication systems and user experience on the Northeast Corridor.</p>
+      </div>
+    </div>
   </section>
 
-  <section id="experience">
-    <h2>Experience</h2>
-    <p>Include your past work experience, internships, and research roles here.</p>
+  <!-- Experience Section -->
+  <section id="experience" class="bg-gray-100 py-12">
+    <div class="max-w-3xl mx-auto px-4">
+      <h2 class="text-2xl font-semibold mb-6 text-primary">Experience</h2>
+      <ul class="space-y-4">
+        <li>
+          <strong>Industrial Engineering Intern</strong> – The Toro Company (Summer 2025)<br>
+          <span class="text-gray-600 text-sm">Supported order services operations and developed process improvement tools.</span>
+        </li>
+        <li>
+          <strong>Undergraduate Researcher</strong> – Human Factors Lab<br>
+          <span class="text-gray-600 text-sm">Analyzed one-arm lifting tasks using EMG sensor data to study muscle activation.</span>
+        </li>
+      </ul>
+    </div>
   </section>
 
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>Find me on <a href="https://github.com/yourusername" target="_blank">GitHub</a> or email me at <a href="mailto:you@example.com">you@example.com</a></p>
+  <!-- Contact Section -->
+  <section id="contact" class="max-w-3xl mx-auto px-4 py-12 text-center">
+    <h2 class="text-2xl font-semibold mb-4 text-primary">Contact</h2>
+    <p>Find me on <a href="https://github.com/yourusername" target="_blank" class="text-accent hover:underline">GitHub</a></p>
+    <p>or email me at <a href="mailto:you@example.com" class="text-accent hover:underline">you@example.com</a></p>
   </section>
 
-  <footer>
+  <!-- Footer -->
+  <footer class="bg-primary text-gray-300 text-center py-4 text-sm">
     © 2025 Evan R
   </footer>
+
 </body>
+
 </html>
 
