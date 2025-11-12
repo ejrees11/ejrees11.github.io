@@ -5,15 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Evan R - Personal Website</title>
 
-  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            primary: '#2b2d42',
-            accent: '#ef233c',
+            primary: '#122d42',   // deep navy background
+            secondary: '#66a2b2', // soft teal text
+            accent: '#0feed9',    // bright cyan highlights
           },
         },
       },
@@ -21,66 +21,67 @@
   </script>
 </head>
 
-<body class="font-sans bg-gray-50 text-gray-800 scroll-smooth">
+<body class="font-sans bg-primary text-secondary scroll-smooth">
 
   <!-- Navbar placeholder -->
   <div id="navbar"></div>
-
   <script>
-    // Load nav.html and inject it
     fetch('/nav.html')
       .then(res => res.text())
       .then(html => document.getElementById('navbar').innerHTML = html)
       .catch(err => console.error('Navbar load error:', err));
   </script>
 
-  <!-- Page content -->
-  <header id="home" class="bg-primary text-white text-center py-16">
-    <h1 class="text-4xl font-bold mb-2">Evan R</h1>
-    <p class="text-lg text-gray-200">Industrial Engineer | Math Enthusiast | Researcher</p>
+  <!-- HEADER -->
+  <header id="home" class="text-center py-16">
+    <h1 class="text-5xl font-bold mb-3 text-accent">Evan R</h1>
+    <p class="text-xl text-secondary">Industrial Engineer | Math Enthusiast | Researcher</p>
   </header>
 
+  <!-- PROJECTS -->
   <section id="projects" class="max-w-3xl mx-auto px-4 py-12">
-    <h2 class="text-2xl font-semibold mb-6 text-primary">Projects</h2>
+    <h2 class="text-3xl font-semibold mb-6 text-accent">Projects</h2>
     <div class="grid gap-4">
-      <div class="bg-white rounded-xl shadow p-4 hover:shadow-lg transition">
-        <h3 class="font-semibold">Order Services Internship @ Toro</h3>
-        <p class="text-gray-600 text-sm mt-1">Improved process efficiency through operations analysis and workflow design.</p>
+      <div class="bg-[#1b3b56] rounded-xl shadow p-6 hover:shadow-accent/40 hover:scale-[1.02] transition">
+        <h3 class="font-semibold text-accent">Order Services Internship @ Toro</h3>
+        <p class="text-secondary mt-1">Improved process efficiency through operations analysis and workflow design.</p>
       </div>
-      <div class="bg-white rounded-xl shadow p-4 hover:shadow-lg transition">
-        <h3 class="font-semibold">Human Factors Research</h3>
-        <p class="text-gray-600 text-sm mt-1">Conducted ergonomic studies using EMG sensors to optimize human-system interaction.</p>
+      <div class="bg-[#1b3b56] rounded-xl shadow p-6 hover:shadow-accent/40 hover:scale-[1.02] transition">
+        <h3 class="font-semibold text-accent">Human Factors Research</h3>
+        <p class="text-secondary mt-1">Conducted ergonomic studies using EMG sensors to optimize human-system interaction.</p>
       </div>
-      <div class="bg-white rounded-xl shadow p-4 hover:shadow-lg transition">
-        <h3 class="font-semibold">Amtrak Communication Project</h3>
-        <p class="text-gray-600 text-sm mt-1">Explored passenger communication systems and user experience on the Northeast Corridor.</p>
+      <div class="bg-[#1b3b56] rounded-xl shadow p-6 hover:shadow-accent/40 hover:scale-[1.02] transition">
+        <h3 class="font-semibold text-accent">Amtrak Communication Project</h3>
+        <p class="text-secondary mt-1">Explored passenger communication systems and user experience on the Northeast Corridor.</p>
       </div>
     </div>
   </section>
 
-  <section id="experience" class="bg-gray-100 py-12">
+  <!-- EXPERIENCE -->
+  <section id="experience" class="py-12 bg-[#0f2438]">
     <div class="max-w-3xl mx-auto px-4">
-      <h2 class="text-2xl font-semibold mb-6 text-primary">Experience</h2>
-      <ul class="space-y-4">
+      <h2 class="text-3xl font-semibold mb-6 text-accent">Experience</h2>
+      <ul class="space-y-5">
         <li>
-          <strong>Industrial Engineering Intern</strong> – The Toro Company (Summer 2025)<br>
-          <span class="text-gray-600 text-sm">Supported order services operations and developed process improvement tools.</span>
+          <strong class="text-accent">Industrial Engineering Intern</strong> – The Toro Company (Summer 2025)<br>
+          <span class="text-secondary text-sm">Supported order services operations and developed process improvement tools.</span>
         </li>
         <li>
-          <strong>Undergraduate Researcher</strong> – Human Factors Lab<br>
-          <span class="text-gray-600 text-sm">Analyzed one-arm lifting tasks using EMG sensor data to study muscle activation.</span>
+          <strong class="text-accent">Undergraduate Researcher</strong> – Human Factors Lab<br>
+          <span class="text-secondary text-sm">Analyzed one-arm lifting tasks using EMG sensor data to study muscle activation.</span>
         </li>
       </ul>
     </div>
   </section>
 
+  <!-- CONTACT -->
   <section id="contact" class="max-w-3xl mx-auto px-4 py-12 text-center">
-    <h2 class="text-2xl font-semibold mb-4 text-primary">Contact</h2>
+    <h2 class="text-3xl font-semibold mb-4 text-accent">Contact</h2>
     <p>Find me on <a href="https://github.com/yourusername" target="_blank" class="text-accent hover:underline">GitHub</a></p>
     <p>or email me at <a href="mailto:you@example.com" class="text-accent hover:underline">you@example.com</a></p>
   </section>
 
-  <footer class="bg-primary text-gray-300 text-center py-4 text-sm">
+  <footer class="bg-[#0d1d2d] text-secondary text-center py-4 text-sm">
     © 2025 Evan R
   </footer>
 
