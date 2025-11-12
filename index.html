@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Evan R - Personal Website</title>
 
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -20,18 +21,20 @@
   </script>
 </head>
 
-
 <body class="font-sans bg-gray-50 text-gray-800 scroll-smooth">
 
-  <nav class="bg-primary text-white sticky top-0 z-50 shadow-md">
-    <div class="max-w-5xl mx-auto flex justify-center gap-6 py-4">
-      <a href="#home" class="hover:text-accent font-medium">Home</a>
-      <a href="#projects" class="hover:text-accent font-medium">Projects</a>
-      <a href="#experience" class="hover:text-accent font-medium">Experience</a>
-      <a href="#contact" class="hover:text-accent font-medium">Contact</a>
-    </div>
-  </nav>
+  <!-- Navbar placeholder -->
+  <div id="navbar"></div>
 
+  <script>
+    // Load nav.html and inject it
+    fetch('/nav.html')
+      .then(res => res.text())
+      .then(html => document.getElementById('navbar').innerHTML = html)
+      .catch(err => console.error('Navbar load error:', err));
+  </script>
+
+  <!-- Page content -->
   <header id="home" class="bg-primary text-white text-center py-16">
     <h1 class="text-4xl font-bold mb-2">Evan R</h1>
     <p class="text-lg text-gray-200">Industrial Engineer | Math Enthusiast | Researcher</p>
@@ -82,26 +85,4 @@
   </footer>
 
 </body>
-
-  <body class="font-sans bg-gray-50 text-gray-800 scroll-smooth">
-
-  <!-- Navbar placeholder -->
-  <div id="navbar"></div>
-
-  <script>
-    // Load nav.html and inject it
-    fetch('/nav.html')
-      .then(res => res.text())
-      .then(html => document.getElementById('navbar').innerHTML = html)
-      .catch(err => console.error('Navbar load error:', err));
-  </script>
-
-  <!-- Then the rest of your page -->
-  <header id="home" class="bg-primary text-white text-center py-16">
-    <h1 class="text-4xl font-bold mb-2">Evan R</h1>
-    <p class="text-lg text-gray-200">Industrial Engineer | Math Enthusiast | Researcher</p>
-  </header>
-
-
 </html>
-
