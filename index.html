@@ -19,37 +19,32 @@
       },
     };
   </script>
-  <style>
-  body {
-    background-color: #122d42;
-    color: #66a2b2;
-    font-family: system-ui, sans-serif;
-    background-image: 
-      radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.04) 1px, transparent 0);
-    background-size: 40px 40px;
-  }
-  .text-accent { color: #0feed9; }
-  .bg-accent { background-color: #0feed9; }
-</style>
 
   <style>
+    /* Body and background */
     body {
       background-color: #122d42;
       color: #66a2b2;
       font-family: system-ui, sans-serif;
+      position: relative;
+      min-height: 100vh;
+      background-image:
+        radial-gradient(circle at 0px 0px, rgba(255, 255, 255, 0.05) 1px, transparent 0),
+        radial-gradient(circle at 20px 20px, rgba(255, 255, 255, 0.05) 1px, transparent 0);
+      background-size: 40px 40px;
     }
+
     .text-accent { color: #0feed9; }
     .bg-accent { background-color: #0feed9; }
   </style>
 </head>
 
-<body class="font-sans bg-primary text-secondary scroll-smooth">
+<body class="font-sans scroll-smooth">
 
   <!-- Navbar -->
   <div id="navbar"></div>
-
   <script>
-    // Load nav.html and inject it
+    // Load shared navbar
     fetch('nav.html')
       .then(res => res.text())
       .then(html => document.getElementById('navbar').innerHTML = html)
@@ -57,16 +52,15 @@
   </script>
 
   <!-- Header -->
-  <header id="home" class="bg-primary text-white text-center py-16">
-    <h1 class="text-4xl font-bold mb-2">Evan R</h1>
-    <p class="text-lg text-secondary">Industrial Engineer | Math Enthusiast | Researcher</p>
+  <header id="home" class="text-center py-16">
+    <h1 class="text-4xl font-bold mb-2 text-accent drop-shadow-lg">Evan Rees</h1>
+    <p class="text-lg text-secondary">4th year student at the University of Wisconsin</p>
   </header>
 
   <!-- Projects Section -->
   <section id="projects" class="max-w-5xl mx-auto px-4 py-12">
     <h2 class="text-3xl font-semibold mb-8 text-accent">Projects</h2>
 
-    <!-- Project Cards -->
     <div class="space-y-12">
       <!-- Project 1 -->
       <div class="flex flex-col md:flex-row bg-[#0feed9]/10 border border-accent/30 rounded-2xl p-6 hover:shadow-[0_0_15px_#0feed9] transition-all duration-300">
@@ -117,7 +111,7 @@
   </section>
 
   <!-- Footer -->
-  <footer class="bg-primary text-[#66a2b2] text-center py-4 text-sm">
+  <footer class="text-center py-4 text-secondary">
     © 2025 Evan R
   </footer>
 
