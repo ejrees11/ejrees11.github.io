@@ -19,6 +19,52 @@
       font-family: system-ui, sans-serif;
       overflow-x: hidden;
     }
+<!-- Animated Gradient Background -->
+<div class="absolute inset-0 -z-10 overflow-hidden">
+  <div class="aurora-bg"></div>
+  <div class="grid-overlay"></div>
+</div>
+
+<style>
+  /* Aurora-like gradient animation */
+  .aurora-bg {
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    top: -50%;
+    left: -50%;
+    background: radial-gradient(circle at 20% 20%, #0feed9 0%, transparent 30%),
+                radial-gradient(circle at 80% 80%, #66a2b2 0%, transparent 30%),
+                radial-gradient(circle at 50% 50%, #0feed9 0%, transparent 30%);
+    filter: blur(120px);
+    animation: auroraMove 15s ease-in-out infinite alternate;
+    opacity: 0.4;
+  }
+
+  @keyframes auroraMove {
+    0% {
+      transform: translate(0, 0) rotate(0deg);
+    }
+    50% {
+      transform: translate(10%, -10%) rotate(20deg);
+    }
+    100% {
+      transform: translate(-10%, 10%) rotate(-20deg);
+    }
+  }
+
+  /* Faint tech-style grid overlay */
+  .grid-overlay {
+    position: absolute;
+    inset: 0;
+    background-image: 
+      linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+    mix-blend-mode: overlay;
+  }
+</style>
 
     /* Fade-up animation for cards */
     @keyframes fadeUp {
