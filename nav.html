@@ -1,8 +1,20 @@
-<nav class="bg-primary text-white sticky top-0 z-50 shadow-md">
-  <div class="max-w-5xl mx-auto flex justify-center gap-6 py-4">
-    <a href="/index.html" class="hover:text-accent font-medium">Home</a>
-    <a href="/projects.html" class="hover:text-accent font-medium">Projects</a>
-    <a href="/experience.html" class="hover:text-accent font-medium">Experience</a>
-    <a href="/contact.html" class="hover:text-accent font-medium">Contact</a>
+<nav id="navbar" class="bg-primary/90 text-secondary sticky top-0 z-50 backdrop-blur-md transition-all duration-500 shadow-lg">
+  <div class="max-w-5xl mx-auto flex justify-center gap-8 py-4 text-lg">
+    <a href="/index.html" class="hover:text-accent transition-all duration-300 hover:drop-shadow-[0_0_4px_#0feed9]">Home</a>
+    <a href="/projects.html" class="hover:text-accent transition-all duration-300 hover:drop-shadow-[0_0_4px_#0feed9]">Projects</a>
+    <a href="/experience.html" class="hover:text-accent transition-all duration-300 hover:drop-shadow-[0_0_4px_#0feed9]">Experience</a>
+    <a href="/contact.html" class="hover:text-accent transition-all duration-300 hover:drop-shadow-[0_0_4px_#0feed9]">Contact</a>
   </div>
 </nav>
+
+<script>
+  // Darken navbar slightly on scroll
+  window.addEventListener('scroll', () => {
+    const nav = document.getElementById('navbar');
+    if (window.scrollY > 30) {
+      nav.classList.add('bg-primary', 'shadow-accent/20');
+    } else {
+      nav.classList.remove('bg-primary', 'shadow-accent/20');
+    }
+  });
+</script>
