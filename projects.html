@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Projects - Evan R</title>
   <script src="https://cdn.tailwindcss.com"></script>
+
   <style>
     :root {
       --primary: #122d42;
@@ -18,51 +19,80 @@
       font-family: system-ui, sans-serif;
     }
 
-    .bg-primary { background-color: var(--primary); }
-    .text-secondary { color: var(--secondary); }
     .text-accent { color: var(--accent); }
     .border-accent { border-color: var(--accent); }
-    .hover-accent:hover { color: var(--accent); }
   </style>
 </head>
 <body class="min-h-screen flex flex-col">
-  
-  <!-- Navigation -->
+
+  <!-- Navbar -->
   <div id="navbar"></div>
 
+  <!-- Page Content -->
   <main class="flex-grow max-w-6xl mx-auto px-6 py-16">
-    <h1 class="text-4xl font-semibold mb-10 text-accent text-center drop-shadow-lg">Projects</h1>
+    <h1 class="text-4xl font-semibold mb-10 text-accent text-center drop-shadow-lg">
+      Projects
+    </h1>
 
-    <!-- Projects Grid -->
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
-      
-      <!-- Example Project Card -->
-      <div class="bg-[#0feed9]/5 border border-accent/50 rounded-2xl p-6 hover:shadow-[0_0_15px_#0feed9] transition-all duration-300">
-        <img src="https://via.placeholder.com/400x250" alt="Project 1" class="rounded-lg mb-4">
-        <h2 class="text-2xl text-accent font-semibold mb-2">Project Title One</h2>
-        <p class="text-secondary">A brief description of your project. Mention its purpose, what technologies you used, or what problem it solves.</p>
+    <!-- Project Card 1 -->
+    <div class="flex flex-col md:flex-row items-center bg-[#0feed9]/5 border border-accent/40 rounded-2xl p-8 mb-10 hover:shadow-[0_0_20px_#0feed9] transition-all duration-300">
+      <!-- Text -->
+      <div class="flex-1 md:pr-8">
+        <h2 class="text-3xl font-semibold text-accent mb-3">Order Services Internship @ Toro</h2>
+        <p class="text-secondary leading-relaxed">
+          Improved process efficiency through operations analysis and workflow design.
+          Created tools to track order fulfillment and streamline communication between departments.
+        </p>
       </div>
-
-      <div class="bg-[#0feed9]/5 border border-accent/50 rounded-2xl p-6 hover:shadow-[0_0_15px_#0feed9] transition-all duration-300">
-        <img src="https://via.placeholder.com/400x250" alt="Project 2" class="rounded-lg mb-4">
-        <h2 class="text-2xl text-accent font-semibold mb-2">Project Title Two</h2>
-        <p class="text-secondary">A short summary describing what this project does and why it’s interesting or important.</p>
+      <!-- Image -->
+      <div class="flex-1 mt-6 md:mt-0">
+        <img src="https://via.placeholder.com/600x350" alt="Toro Internship"
+             class="rounded-xl shadow-lg w-full object-cover">
       </div>
-
-      <div class="bg-[#0feed9]/5 border border-accent/50 rounded-2xl p-6 hover:shadow-[0_0_15px_#0feed9] transition-all duration-300">
-        <img src="https://via.placeholder.com/400x250" alt="Project 3" class="rounded-lg mb-4">
-        <h2 class="text-2xl text-accent font-semibold mb-2">Project Title Three</h2>
-        <p class="text-secondary">Include any relevant context, challenges, or what you learned from this project.</p>
-      </div>
-
     </div>
+
+    <!-- Project Card 2 -->
+    <div class="flex flex-col md:flex-row items-center bg-[#0feed9]/5 border border-accent/40 rounded-2xl p-8 mb-10 hover:shadow-[0_0_20px_#0feed9] transition-all duration-300">
+      <!-- Text -->
+      <div class="flex-1 md:pr-8">
+        <h2 class="text-3xl font-semibold text-accent mb-3">Human Factors Research</h2>
+        <p class="text-secondary leading-relaxed">
+          Conducted ergonomic studies using EMG sensors to optimize human-system interaction.
+          Developed data collection methods and analyzed muscle activation patterns for one-arm lifting tasks.
+        </p>
+      </div>
+      <!-- Image -->
+      <div class="flex-1 mt-6 md:mt-0">
+        <img src="https://via.placeholder.com/600x350" alt="Human Factors Research"
+             class="rounded-xl shadow-lg w-full object-cover">
+      </div>
+    </div>
+
+    <!-- Project Card 3 -->
+    <div class="flex flex-col md:flex-row items-center bg-[#0feed9]/5 border border-accent/40 rounded-2xl p-8 mb-10 hover:shadow-[0_0_20px_#0feed9] transition-all duration-300">
+      <!-- Text -->
+      <div class="flex-1 md:pr-8">
+        <h2 class="text-3xl font-semibold text-accent mb-3">Amtrak Communication Project</h2>
+        <p class="text-secondary leading-relaxed">
+          Explored passenger communication systems and user experience on the Northeast Corridor.
+          Analyzed technical design, accessibility, and human factors implications of Acela’s passenger information systems.
+        </p>
+      </div>
+      <!-- Image -->
+      <div class="flex-1 mt-6 md:mt-0">
+        <img src="https://via.placeholder.com/600x350" alt="Amtrak Project"
+             class="rounded-xl shadow-lg w-full object-cover">
+      </div>
+    </div>
+
   </main>
 
+  <!-- Navbar Script -->
   <script>
-    // Load the shared navbar file dynamically
     fetch('nav.html')
       .then(res => res.text())
-      .then(html => document.getElementById('navbar').innerHTML = html);
+      .then(html => document.getElementById('navbar').innerHTML = html)
+      .catch(err => console.error('Navbar load error:', err));
   </script>
 
 </body>
