@@ -50,25 +50,26 @@
   </script>
 
   <!-- HEADER -->
-<header id="home" 
-  class="relative text-center py-16 bg-primary text-secondary overflow-hidden">
-
-  <!-- Animated Circuit Pattern Overlay -->
-  <div class="absolute inset-0 opacity-15 animate-pulse-circuit"
-       style="background-image: url('data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'180\' height=\'180\' viewBox=\'0 0 200 200\'><rect width=\'200\' height=\'200\' fill=\'none\' stroke=\'%230feed9\' stroke-width=\'0.4\'/><path d=\'M10 10h30v30H10zM60 10h30v30H60zM110 10h30v30h-30zM10 60h30v30H10zM60 60h30v30H60zM110 60h30v30h-30zM10 110h30v30H10zM60 110h30v30H60zM110 110h30v30h-30z\' stroke=\'%230feed9\' stroke-width=\'0.4\' fill=\'none\'/><circle cx=\'25\' cy=\'25\' r=\'1.5\' fill=\'%230feed9\'/><circle cx=\'75\' cy=\'75\' r=\'1.5\' fill=\'%230feed9\'/><circle cx=\'125\' cy=\'25\' r=\'1.5\' fill=\'%230feed9\'/><circle cx=\'25\' cy=\'125\' r=\'1.5\' fill=\'%230feed9\'/></svg>');
-              background-repeat: repeat;
-              background-size: 200px 200px;">
+<header id="home" class="relative text-white text-center py-20 overflow-hidden">
+  <!-- Background animation -->
+  <div class="absolute inset-0 bg-[#122d42]">
+    <div class="absolute inset-0 opacity-20 animate-pulse"
+         style="
+           background-image:
+             linear-gradient(90deg, rgba(15,238,217,0.2) 1px, transparent 1px),
+             linear-gradient(rgba(15,238,217,0.2) 1px, transparent 1px);
+           background-size: 40px 40px;
+         ">
+    </div>
   </div>
 
-  <!-- Header Content -->
+  <!-- Header content -->
   <div class="relative z-10">
     <h1 class="text-5xl font-bold mb-3 text-accent drop-shadow-lg">Evan R</h1>
-    <p class="text-xl text-secondary">Industrial Engineer | Math Enthusiast | Researcher</p>
+    <p class="text-lg text-[#66a2b2]">Industrial Engineer | Math Enthusiast | Researcher</p>
   </div>
-
-  <!-- Gradient Overlay (softens the pattern) -->
-  <div class="absolute inset-0 bg-gradient-to-b from-primary/80 to-primary/90"></div>
 </header>
+
 
 
 
