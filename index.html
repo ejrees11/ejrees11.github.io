@@ -49,15 +49,17 @@
       .catch(err => console.error('Navbar load error:', err));
   </script>
 
-  <!-- HEADER -->
-<header id="home" class="relative text-white text-center py-20 overflow-hidden">
-  <!-- Background -->
+ <header id="home" class="relative text-white text-center py-20 overflow-hidden">
+  <!-- Background animation -->
   <div class="absolute inset-0 bg-[#122d42]">
-    <img 
-      src="https://upload.wikimedia.org/wikipedia/commons/2/24/Circuit_board_pattern.svg"
-      alt="Circuit background"
-      class="absolute inset-0 w-full h-full object-cover opacity-10"
-    />
+    <div class="absolute inset-0 opacity-20 animate-pulse"
+         style="
+           background-image:
+             linear-gradient(90deg, rgba(15,238,217,0.2) 1px, transparent 1px),
+             linear-gradient(rgba(15,238,217,0.2) 1px, transparent 1px);
+           background-size: 40px 40px;
+         ">
+    </div>
   </div>
 
   <!-- Header content -->
@@ -66,6 +68,7 @@
     <p class="text-lg text-[#66a2b2]">Industrial Engineer | Math Enthusiast | Researcher</p>
   </div>
 </header>
+
 
 
 
