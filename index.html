@@ -32,7 +32,7 @@
     .text-accent { color: #0feed9; }
     .bg-accent { background-color: #0feed9; }
 
-    /* Starry background container */
+    /* 3D Starry background container */
     .stars-container {
       position: fixed;
       top: 0;
@@ -41,61 +41,70 @@
       height: 100%;
       z-index: 0;
       overflow: hidden;
+      perspective: 1000px;
     }
 
-    /* Star layers with different sizes and speeds */
-    .stars {
+    /* 3D rotating star field */
+    .stars-3d {
+      position: absolute;
+      width: 200%;
+      height: 200%;
+      top: -50%;
+      left: -50%;
+      transform-style: preserve-3d;
+      animation: rotate3d 120s linear infinite;
+    }
+
+    @keyframes rotate3d {
+      0% {
+        transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+      }
+      100% {
+        transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+      }
+    }
+
+    /* Individual star layers at different depths */
+    .star-layer {
       position: absolute;
       width: 100%;
       height: 100%;
-      background: transparent;
+      transform-style: preserve-3d;
     }
 
-    .stars::before,
-    .stars::after {
-      content: '';
+    .star-layer-1 { transform: translateZ(0px); }
+    .star-layer-2 { transform: translateZ(-200px); }
+    .star-layer-3 { transform: translateZ(-400px); }
+
+    .star {
       position: absolute;
-      width: 2px;
-      height: 2px;
       background: #0feed9;
       border-radius: 50%;
-      box-shadow: 
-        100px 200px #66a2b2, 300px 150px #0feed9, 500px 300px #66a2b2,
-        700px 100px #0feed9, 900px 250px #66a2b2, 200px 400px #0feed9,
-        400px 500px #66a2b2, 600px 450px #0feed9, 800px 350px #66a2b2,
-        150px 50px #0feed9, 350px 600px #66a2b2, 550px 550px #0feed9,
-        750px 500px #66a2b2, 950px 150px #0feed9, 1100px 300px #66a2b2,
-        1300px 200px #0feed9, 1500px 400px #66a2b2, 250px 100px #0feed9,
-        450px 250px #66a2b2, 650px 200px #0feed9, 850px 450px #66a2b2,
-        1050px 350px #0feed9, 1250px 500px #66a2b2, 1450px 150px #0feed9,
-        180px 320px #66a2b2, 380px 420px #0feed9, 580px 120px #66a2b2,
-        780px 220px #0feed9, 980px 520px #66a2b2, 1180px 420px #0feed9,
-        120px 500px #66a2b2, 320px 350px #0feed9, 520px 400px #66a2b2,
-        720px 300px #0feed9, 920px 200px #66a2b2, 1120px 250px #0feed9,
-        1320px 450px #66a2b2, 220px 220px #0feed9, 420px 320px #66a2b2,
-        620px 520px #0feed9, 820px 420px #66a2b2, 1020px 120px #0feed9;
+      box-shadow: 0 0 6px 2px rgba(15, 238, 217, 0.5);
+    }
+
+    .star-small {
+      width: 1px;
+      height: 1px;
+    }
+
+    .star-medium {
+      width: 2px;
+      height: 2px;
+    }
+
+    .star-large {
+      width: 3px;
+      height: 3px;
+    }
+
+    /* Twinkle animation */
+    .twinkle {
       animation: twinkle 3s infinite ease-in-out;
     }
 
-    .stars::after {
-      width: 1px;
-      height: 1px;
-      box-shadow: 
-        50px 100px #66a2b2, 250px 50px #0feed9, 450px 200px #66a2b2,
-        650px 150px #0feed9, 850px 350px #66a2b2, 150px 300px #0feed9,
-        350px 400px #66a2b2, 550px 250px #0feed9, 750px 450px #66a2b2,
-        950px 200px #0feed9, 1150px 100px #66a2b2, 1350px 300px #0feed9,
-        1550px 350px #66a2b2, 200px 150px #0feed9, 400px 450px #66a2b2,
-        600px 350px #0feed9, 800px 250px #66a2b2, 1000px 450px #0feed9,
-        1200px 200px #66a2b2, 1400px 400px #0feed9, 80px 380px #66a2b2,
-        280px 280px #0feed9, 480px 480px #66a2b2, 680px 180px #0feed9,
-        880px 380px #66a2b2, 1080px 280px #0feed9, 1280px 180px #66a2b2,
-        160px 460px #0feed9, 360px 160px #66a2b2, 560px 360px #0feed9,
-        760px 260px #66a2b2, 960px 460px #0feed9, 1160px 360px #66a2b2,
-        1360px 260px #0feed9, 130px 230px #66a2b2, 330px 330px #0feed9,
-        530px 430px #66a2b2, 730px 130px #0feed9, 930px 330px #66a2b2,
-        1130px 430px #0feed9, 1330px 330px #66a2b2, 1530px 230px #0feed9;
-      animation: twinkle 2s infinite ease-in-out;
+    .twinkle-slow {
+      animation: twinkle 5s infinite ease-in-out;
     }
 
     @keyframes twinkle {
@@ -103,7 +112,7 @@
       50% { opacity: 1; }
     }
 
-    /* Shooting stars */
+    /* Shooting stars - less frequent */
     .shooting-star {
       position: absolute;
       width: 2px;
@@ -111,7 +120,7 @@
       background: #0feed9;
       border-radius: 50%;
       box-shadow: 0 0 10px 2px #0feed9;
-      animation: shoot 3s linear infinite;
+      animation: shoot 4s linear infinite;
     }
 
     .shooting-star:nth-child(1) {
@@ -123,19 +132,19 @@
     .shooting-star:nth-child(2) {
       top: 40%;
       left: 70%;
-      animation-delay: 8s;
+      animation-delay: 20s;
     }
 
     .shooting-star:nth-child(3) {
       top: 60%;
       left: 90%;
-      animation-delay: 16s;
+      animation-delay: 40s;
     }
 
     .shooting-star:nth-child(4) {
       top: 10%;
       left: 60%;
-      animation-delay: 24s;
+      animation-delay: 60s;
     }
 
     @keyframes shoot {
@@ -169,14 +178,53 @@
   </style>
 </head>
 <body>
-  <!-- Animated starry background -->
+  <!-- Animated 3D starry background -->
   <div class="stars-container">
-    <div class="stars"></div>
+    <div class="stars-3d" id="stars3d"></div>
     <div class="shooting-star"></div>
     <div class="shooting-star"></div>
     <div class="shooting-star"></div>
     <div class="shooting-star"></div>
   </div>
+
+  <script>
+    // Generate random stars in 3D space
+    const stars3d = document.getElementById('stars3d');
+    
+    // Create three layers of stars at different depths
+    for (let layer = 0; layer < 3; layer++) {
+      const starLayer = document.createElement('div');
+      starLayer.className = `star-layer star-layer-${layer + 1}`;
+      
+      // Generate 100 stars per layer
+      for (let i = 0; i < 100; i++) {
+        const star = document.createElement('div');
+        const size = Math.random();
+        
+        if (size < 0.6) {
+          star.className = 'star star-small twinkle';
+        } else if (size < 0.9) {
+          star.className = 'star star-medium twinkle-slow';
+        } else {
+          star.className = 'star star-large twinkle';
+        }
+        
+        // Random position
+        star.style.left = Math.random() * 100 + '%';
+        star.style.top = Math.random() * 100 + '%';
+        
+        // Random color (accent or secondary)
+        star.style.background = Math.random() > 0.5 ? '#0feed9' : '#66a2b2';
+        
+        // Random animation delay
+        star.style.animationDelay = Math.random() * 3 + 's';
+        
+        starLayer.appendChild(star);
+      }
+      
+      stars3d.appendChild(starLayer);
+    }
+  </script>
 
   <!-- Content -->
   <div class="content">
