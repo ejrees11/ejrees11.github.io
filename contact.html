@@ -10,18 +10,65 @@
       theme: { extend: { colors: { primary: '#122d42', secondary: '#66a2b2', accent: '#0feed9' } } },
     };
   </script>
+  <style>
+    body {
+      font-family: 'Courier New', monospace;
+    }
+
+    /* Typewriter effect */
+    .typewriter {
+      display: inline-block;
+      overflow: hidden;
+      white-space: nowrap;
+      border-right: 3px solid #0feed9;
+      animation: blink-caret 0.75s step-end infinite;
+    }
+
+    .typewriter.typing-complete {
+      border-right: none;
+    }
+
+    @keyframes blink-caret {
+      from, to { border-color: transparent; }
+      50% { border-color: #0feed9; }
+    }
+
+    /* Hide text initially */
+    .hidden-text {
+      opacity: 0;
+    }
+
+    .visible-text {
+      opacity: 1;
+      transition: opacity 0.3s;
+    }
+
+    /* Fade in buttons after typing */
+    .fade-in-buttons {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+
+    .fade-in-buttons.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
 </head>
-<body class="bg-primary text-secondary font-sans">
+<body class="bg-primary text-secondary">
   <div id="navbar"></div>
   <script>
     fetch('/nav.html').then(r => r.text()).then(h => document.getElementById('navbar').innerHTML = h);
   </script>
 <section id="contact" class="max-w-3xl mx-auto px-4 py-20 text-center relative">
-  <h2 class="text-4xl font-semibold mb-8 text-accent drop-shadow-lg">Contact</h2>
-
-  <p class="text-secondary mb-8 text-lg">Interested in collaboration, or have any questions about my work?</p>
-
-  <div class="flex justify-center gap-6 flex-wrap">
+  <h2 class="text-4xl font-semibold mb-8 text-accent drop-shadow-lg">
+    <span id="contactTitle" class="typewriter hidden-text"></span>
+  </h2>
+  <p class="text-secondary mb-8 text-lg">
+    <span id="contactDesc" class="hidden-text"></span>
+  </p>
+  <div id="contactButtons" class="flex justify-center gap-6 flex-wrap fade-in-buttons">
     <!-- LinkedIn -->
     <a href="https://www.linkedin.com/in/evan-rees-03a878344" target="_blank"
        class="bg-[#0feed9]/10 border border-accent text-accent px-6 py-3 rounded-full 
@@ -32,9 +79,8 @@
       </svg>
       LinkedIn
     </a>
-
     <!-- Email -->
-    <a href="erees718@gmail.com"
+    <a href="mailto:erees718@gmail.com"
        class="bg-[#0feed9]/10 border border-accent text-accent px-6 py-3 rounded-full 
               font-medium transition-all duration-300 hover:bg-accent hover:text-primary 
               hover:shadow-[0_0_10px_#0feed9] hover:scale-105">
@@ -46,5 +92,47 @@
   </div>
 </section>
 
+<script>
+  // Typewriter effect function
+  function typeWriter(element, text, speed, callback) {
+    let i = 0;
+    element.classList.remove('hidden-text');
+    element.classList.add('visible-text', 'typewriter');
+    
+    function type() {
+      if (i < text.length) {
+        element.textContent += text.charAt(i);
+        i++;
+        setTimeout(type, speed);
+      } else {
+        element.classList.add('typing-complete');
+        if (callback) {
+          setTimeout(callback, 500);
+        }
+      }
+    }
+    
+    type();
+  }
+
+  // Start typewriter effect on page load
+  window.addEventListener('load', function() {
+    const titleElement = document.getElementById('contactTitle');
+    const descElement = document.getElementById('contactDesc');
+    const buttonsElement = document.getElementById('contactButtons');
+    
+    // Type title first, then description, then show buttons
+    typeWriter(titleElement, 'Contact', 100, function() {
+      titleElement.classList.remove('typewriter');
+      typeWriter(descElement, 'Interested in collaboration, or have any questions about my work?', 40, function() {
+        descElement.classList.remove('typewriter');
+        // Fade in buttons
+        setTimeout(() => {
+          buttonsElement.classList.add('show');
+        }, 300);
+      });
+    });
+  });
+</script>
 </body>
 </html>
