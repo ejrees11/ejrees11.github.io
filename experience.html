@@ -18,6 +18,47 @@
       color: var(--secondary);
       font-family: 'Courier New', monospace;
       overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Circuit board pattern background */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      opacity: 0.08;
+      background-image: 
+        linear-gradient(90deg, var(--accent) 1px, transparent 1px),
+        linear-gradient(0deg, var(--accent) 1px, transparent 1px),
+        radial-gradient(circle at 20% 30%, var(--accent) 2px, transparent 2px),
+        radial-gradient(circle at 80% 70%, var(--accent) 2px, transparent 2px),
+        radial-gradient(circle at 40% 80%, var(--accent) 2px, transparent 2px),
+        radial-gradient(circle at 60% 20%, var(--accent) 2px, transparent 2px);
+      background-size: 
+        80px 80px,
+        80px 80px,
+        200px 200px,
+        200px 200px,
+        200px 200px,
+        200px 200px;
+      background-position:
+        0 0,
+        0 0,
+        0 0,
+        0 0,
+        0 0,
+        0 0;
+      pointer-events: none;
+    }
+
+    /* Content layer */
+    .content-layer {
+      position: relative;
+      z-index: 1;
     }
 
     /* Fade-up animation for cards */
@@ -54,9 +95,9 @@
 <body class="min-h-screen flex flex-col">
 
   <!-- Navbar -->
-  <div id="navbar"></div>
+  <div id="navbar" class="content-layer"></div>
 
-  <main class="flex-grow max-w-4xl mx-auto px-6 py-16 relative">
+  <main class="content-layer flex-grow max-w-4xl mx-auto px-6 py-16 relative">
 
     <h1 class="text-4xl font-semibold mb-12 text-accent text-center drop-shadow-lg">
       Experience
