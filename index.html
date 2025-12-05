@@ -14,6 +14,10 @@
             secondary: '#66a2b2',
             accent: '#0feed9',
           },
+          fontFamily: {
+            'mono': ['Courier New', 'monospace'],
+            'code': ['Fira Code', 'Consolas', 'Monaco', 'Courier New', 'monospace'],
+          },
         },
       },
     };
@@ -22,7 +26,7 @@
     body {
       background-color: #122d42;
       color: #66a2b2;
-      font-family: system-ui, sans-serif;
+      font-family: 'Courier New', monospace;
       position: relative;
       min-height: 100vh;
       margin: 0;
@@ -129,6 +133,34 @@
       margin-top: auto;
       padding-top: 8rem;
     }
+
+    /* Typewriter effect */
+    .typewriter {
+      display: inline-block;
+      overflow: hidden;
+      white-space: nowrap;
+      border-right: 3px solid #0feed9;
+      animation: blink-caret 0.75s step-end infinite;
+    }
+
+    .typewriter.typing-complete {
+      border-right: none;
+    }
+
+    @keyframes blink-caret {
+      from, to { border-color: transparent; }
+      50% { border-color: #0feed9; }
+    }
+
+    /* Hide text initially */
+    .hidden-text {
+      opacity: 0;
+    }
+
+    .visible-text {
+      opacity: 1;
+      transition: opacity 0.3s;
+    }
   </style>
 </head>
 <body>
@@ -194,15 +226,57 @@
 
       <!-- Header -->
       <header id="home" class="text-center py-16">
-        <h1 class="text-4xl font-bold mb-2 text-accent drop-shadow-lg">Evan Rees</h1>
-        <p class="text-lg text-secondary">4th year undergraduate at the University of Wisconsin</p>
+        <h1 class="text-4xl font-bold mb-2 text-accent drop-shadow-lg">
+          <span id="name" class="typewriter hidden-text"></span>
+        </h1>
+        <p class="text-lg text-secondary">
+          <span id="description" class="hidden-text"></span>
+        </p>
       </header>
     </main>
 
     <!-- Footer -->
-    <footer class="text-center py-4 text-secondary">
+    <footer class="text-center py-4 text-secondary font-mono">
       © 2025 Evan Rees. 'Never again will I ask a zebra about stripes.'
     </footer>
   </div>
+
+  <script>
+    // Typewriter effect function
+    function typeWriter(element, text, speed, callback) {
+      let i = 0;
+      element.classList.remove('hidden-text');
+      element.classList.add('visible-text', 'typewriter');
+      
+      function type() {
+        if (i < text.length) {
+          element.textContent += text.charAt(i);
+          i++;
+          setTimeout(type, speed);
+        } else {
+          element.classList.add('typing-complete');
+          if (callback) {
+            setTimeout(callback, 500);
+          }
+        }
+      }
+      
+      type();
+    }
+
+    // Start typewriter effect on page load
+    window.addEventListener('load', function() {
+      const nameElement = document.getElementById('name');
+      const descriptionElement = document.getElementById('description');
+      
+      // Type name first, then description
+      typeWriter(nameElement, 'Evan Rees', 100, function() {
+        nameElement.classList.remove('typewriter');
+        typeWriter(descriptionElement, '4th year undergraduate at the University of Wisconsin', 50, function() {
+          descriptionElement.classList.remove('typewriter');
+        });
+      });
+    });
+  </script>
 </body>
 </html>
