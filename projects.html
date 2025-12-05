@@ -17,6 +17,48 @@
       background-color: var(--primary);
       color: var(--secondary);
       font-family: 'Courier New', monospace;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Circuit board pattern background */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      opacity: 0.08;
+      background-image: 
+        linear-gradient(90deg, var(--accent) 1px, transparent 1px),
+        linear-gradient(0deg, var(--accent) 1px, transparent 1px),
+        radial-gradient(circle at 20% 30%, var(--accent) 2px, transparent 2px),
+        radial-gradient(circle at 80% 70%, var(--accent) 2px, transparent 2px),
+        radial-gradient(circle at 40% 80%, var(--accent) 2px, transparent 2px),
+        radial-gradient(circle at 60% 20%, var(--accent) 2px, transparent 2px);
+      background-size: 
+        80px 80px,
+        80px 80px,
+        200px 200px,
+        200px 200px,
+        200px 200px,
+        200px 200px;
+      background-position:
+        0 0,
+        0 0,
+        0 0,
+        0 0,
+        0 0,
+        0 0;
+      pointer-events: none;
+    }
+
+    /* Content layer */
+    .content-layer {
+      position: relative;
+      z-index: 1;
     }
 
     .text-accent { color: var(--accent); }
@@ -26,16 +68,16 @@
 <body class="min-h-screen flex flex-col">
 
   <!-- Navbar -->
-  <div id="navbar"></div>
+  <div id="navbar" class="content-layer"></div>
 
   <!-- Page Content -->
-  <main class="flex-grow max-w-6xl mx-auto px-6 py-16">
+  <main class="content-layer flex-grow max-w-6xl mx-auto px-6 py-16">
     <h1 class="text-4xl font-semibold mb-10 text-accent text-center drop-shadow-lg">
       Projects
     </h1>
 
     <!-- Project Card 1 -->
-    <div class="flex flex-col md:flex-row items-center bg-[#0feed9]/5 border border-accent/40 rounded-2xl p-8 mb-10 hover:shadow-[0_0_20px_#0feed9] transition-all duration-300">
+    <div class="flex flex-col md:flex-row items-center bg-primary border border-accent/40 rounded-2xl p-8 mb-10 hover:shadow-[0_0_20px_#0feed9] transition-all duration-300">
       <!-- Text -->
       <div class="flex-1 md:pr-8">
         <h2 class="text-3xl font-semibold text-accent mb-3">Neural Data Visualization Platform for EEG Research</h2>
@@ -56,7 +98,7 @@
     </div>
 
     <!-- Project Card 2 -->
-    <div class="flex flex-col md:flex-row items-center bg-[#0feed9]/5 border border-accent/40 rounded-2xl p-8 mb-10 hover:shadow-[0_0_20px_#0feed9] transition-all duration-300">
+    <div class="flex flex-col md:flex-row items-center bg-primary border border-accent/40 rounded-2xl p-8 mb-10 hover:shadow-[0_0_20px_#0feed9] transition-all duration-300">
       <!-- Text -->
       <div class="flex-1 md:pr-8">
         <h2 class="text-3xl font-semibold text-accent mb-3">LCD Manufacturer Facility Redesign</h2>
@@ -75,7 +117,7 @@
     </div>
 
     <!-- Project Card 3 -->
-    <div class="flex flex-col md:flex-row items-center bg-[#0feed9]/5 border border-accent/40 rounded-2xl p-8 mb-10 hover:shadow-[0_0_20px_#0feed9] transition-all duration-300">
+    <div class="flex flex-col md:flex-row items-center bg-primary border border-accent/40 rounded-2xl p-8 mb-10 hover:shadow-[0_0_20px_#0feed9] transition-all duration-300">
       <!-- Text -->
       <div class="flex-1 md:pr-8">
         <h2 class="text-3xl font-semibold text-accent mb-3">The W Project</h2>
@@ -93,7 +135,7 @@
     </div>
 
     <!-- Project Card 4 -->
-    <div class="flex flex-col md:flex-row items-center bg-[#0feed9]/5 border border-accent/40 rounded-2xl p-8 mb-10 hover:shadow-[0_0_20px_#0feed9] transition-all duration-300">
+    <div class="flex flex-col md:flex-row items-center bg-primary border border-accent/40 rounded-2xl p-8 mb-10 hover:shadow-[0_0_20px_#0feed9] transition-all duration-300">
       <!-- Text -->
       <div class="flex-1 md:pr-8">
         <h2 class="text-3xl font-semibold text-accent mb-3">Passenger Rail Delay Reduction Through Network Modeling</h2>
@@ -114,7 +156,7 @@
     </div>
 
         <!-- Project Card 5 -->
-    <div class="flex flex-col md:flex-row items-center bg-[#0feed9]/5 border border-accent/40 rounded-2xl p-8 mb-10 hover:shadow-[0_0_20px_#0feed9] transition-all duration-300">
+    <div class="flex flex-col md:flex-row items-center bg-primary border border-accent/40 rounded-2xl p-8 mb-10 hover:shadow-[0_0_20px_#0feed9] transition-all duration-300">
       <!-- Text -->
       <div class="flex-1 md:pr-8">
         <h2 class="text-3xl font-semibold text-accent mb-3">Measuring Trust Through Neural Activation</h2>
@@ -133,7 +175,7 @@
     </div>
 
         <!-- Project Card 6 -->
-    <div class="flex flex-col md:flex-row items-center bg-[#0feed9]/5 border border-accent/40 rounded-2xl p-8 mb-10 hover:shadow-[0_0_20px_#0feed9] transition-all duration-300">
+    <div class="flex flex-col md:flex-row items-center bg-primary border border-accent/40 rounded-2xl p-8 mb-10 hover:shadow-[0_0_20px_#0feed9] transition-all duration-300">
       <!-- Text -->
       <div class="flex-1 md:pr-8">
         <h2 class="text-3xl font-semibold text-accent mb-3">Plant Disease Classification</h2>
@@ -152,7 +194,7 @@
     </div>
 
         <!-- Project Card 7 -->
-    <div class="flex flex-col md:flex-row items-center bg-[#0feed9]/5 border border-accent/40 rounded-2xl p-8 mb-10 hover:shadow-[0_0_20px_#0feed9] transition-all duration-300">
+    <div class="flex flex-col md:flex-row items-center bg-primary border border-accent/40 rounded-2xl p-8 mb-10 hover:shadow-[0_0_20px_#0feed9] transition-all duration-300">
       <!-- Text -->
       <div class="flex-1 md:pr-8">
         <h2 class="text-3xl font-semibold text-accent mb-3">Queueing Theory and Simulation Modeling in Fast Food Kiosk Ordering Systems</h2>
@@ -170,7 +212,7 @@
     </div>
 
         <!-- Project Card 8 -->
-    <div class="flex flex-col md:flex-row items-center bg-[#0feed9]/5 border border-accent/40 rounded-2xl p-8 mb-10 hover:shadow-[0_0_20px_#0feed9] transition-all duration-300">
+    <div class="flex flex-col md:flex-row items-center bg-primary border border-accent/40 rounded-2xl p-8 mb-10 hover:shadow-[0_0_20px_#0feed9] transition-all duration-300">
       <!-- Text -->
       <div class="flex-1 md:pr-8">
         <h2 class="text-3xl font-semibold text-accent mb-3">Electric Scooter Manufacturer Facility Redesign</h2>
@@ -188,7 +230,7 @@
     </div>
 
         <!-- Project Card 9 -->
-    <div class="flex flex-col md:flex-row items-center bg-[#0feed9]/5 border border-accent/40 rounded-2xl p-8 mb-10 hover:shadow-[0_0_20px_#0feed9] transition-all duration-300">
+    <div class="flex flex-col md:flex-row items-center bg-primary border border-accent/40 rounded-2xl p-8 mb-10 hover:shadow-[0_0_20px_#0feed9] transition-all duration-300">
       <!-- Text -->
       <div class="flex-1 md:pr-8">
         <h2 class="text-3xl font-semibold text-accent mb-3">Color Vision Deficiency in Warehousing Research Design</h2>
@@ -206,7 +248,7 @@
     </div>
 
         <!-- Project Card 10 -->
-    <div class="flex flex-col md:flex-row items-center bg-[#0feed9]/5 border border-accent/40 rounded-2xl p-8 mb-10 hover:shadow-[0_0_20px_#0feed9] transition-all duration-300">
+    <div class="flex flex-col md:flex-row items-center bg-primary border border-accent/40 rounded-2xl p-8 mb-10 hover:shadow-[0_0_20px_#0feed9] transition-all duration-300">
       <!-- Text -->
       <div class="flex-1 md:pr-8">
         <h2 class="text-3xl font-semibold text-accent mb-3">Metals Shop Facility Redesign</h2>
