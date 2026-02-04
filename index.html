@@ -267,27 +267,37 @@
     type();
   }
 
-  window.addEventListener('load', function() {
+ window.addEventListener('load', function() {
   const nameElement = document.getElementById('name');
   const description1 = document.getElementById('description1');
   const description2 = document.getElementById('description2');
 
+  // Type name first
   typeWriter(nameElement, 'Evan Rees', 100, function() {
     nameElement.classList.remove('typewriter');
 
+    // Then type first description line
     typeWriter(
       description1,
       '4th year undergraduate at the University of Wisconsin',
-      50
-    );
+      50,
+      function() {
+        description1.classList.remove('typewriter');
 
-    typeWriter(
-      description2,
-      'Incoming Process Improvement Engineer at J.P. Cullen Construction',
-      50
+        // Then type second description line
+        typeWriter(
+          description2,
+          'Incoming Process Improvement Engineer at J.P. Cullen Construction',
+          50,
+          function() {
+            description2.classList.remove('typewriter');
+          }
+        );
+      }
     );
   });
 });
+
 
 </script>
 
