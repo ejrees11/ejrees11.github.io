@@ -266,32 +266,27 @@
   }
 
   window.addEventListener('load', function() {
-    const nameElement = document.getElementById('name');
-    const descriptionElement = document.getElementById('description');
+  const nameElement = document.getElementById('name');
+  const description1 = document.getElementById('description1');
+  const description2 = document.getElementById('description2');
 
-    typeWriter(nameElement, 'Evan Rees', 100, function() {
-      nameElement.classList.remove('typewriter');
+  typeWriter(nameElement, 'Evan Rees', 100, function() {
+    nameElement.classList.remove('typewriter');
 
-      typeWriter(
-        descriptionElement,
-        '4th year undergraduate at the University of Wisconsin',
-        50,
-        function() {
-          descriptionElement.classList.remove('typewriter');
-          descriptionElement.innerHTML += '<br>';
+    typeWriter(
+      description1,
+      '4th year undergraduate at the University of Wisconsin',
+      50
+    );
 
-          typeWriter(
-            descriptionElement,
-            'Incoming Process Improvement Engineer at J.P. Cullen Construction',
-            50,
-            function() {
-              descriptionElement.classList.remove('typewriter');
-            }
-          );
-        }
-      );
-    });
+    typeWriter(
+      description2,
+      'Incoming Process Improvement Engineer at J.P. Cullen Construction',
+      50
+    );
   });
+});
+
 </script>
 
 </body>
