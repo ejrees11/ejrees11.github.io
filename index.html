@@ -264,19 +264,34 @@
       type();
     }
 
-    // Start typewriter effect on page load
-    window.addEventListener('load', function() {
-      const nameElement = document.getElementById('name');
-      const descriptionElement = document.getElementById('description');
+   <script>
+
+  window.addEventListener('load', function() {
+    const nameElement = document.getElementById('name');
+    const descriptionElement = document.getElementById('description');
+    typeWriter(nameElement, 'Evan Rees', 100, function() {
+      nameElement.classList.remove('typewriter');
       
-      // Type name first, then description
-      typeWriter(nameElement, 'Evan Rees', 100, function() {
-        nameElement.classList.remove('typewriter');
-        typeWriter(descriptionElement, '4th year undergraduate at the University of Wisconsin', 50, function() {
+      typeWriter(
+        descriptionElement,
+        '4th year undergraduate at the University of Wisconsin',
+        50,
+        function() {
           descriptionElement.classList.remove('typewriter');
-        });
-      });
+          descriptionElement.innerHTML += '<br>';
+          typeWriter(
+            descriptionElement,
+            'Incoming Process Improvement Engineer at J.P. Cullen Construction',
+            50,
+            function() {
+              descriptionElement.classList.remove('typewriter');
+            }
+          );
+        }
+      );
     });
-  </script>
+  });
+</script>
+
 </body>
 </html>
