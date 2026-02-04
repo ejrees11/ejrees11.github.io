@@ -242,36 +242,36 @@
   </div>
 
   <script>
-    // Typewriter effect function
-    function typeWriter(element, text, speed, callback) {
-      let i = 0;
-      element.classList.remove('hidden-text');
-      element.classList.add('visible-text', 'typewriter');
-      
-      function type() {
-        if (i < text.length) {
-          element.textContent += text.charAt(i);
-          i++;
-          setTimeout(type, speed);
-        } else {
-          element.classList.add('typing-complete');
-          if (callback) {
-            setTimeout(callback, 500);
-          }
+  // Typewriter effect function
+  function typeWriter(element, text, speed, callback) {
+    let i = 0;
+    element.classList.remove('hidden-text');
+    element.classList.add('visible-text', 'typewriter');
+    element.textContent = ""; // good practice to reset text
+
+    function type() {
+      if (i < text.length) {
+        element.textContent += text.charAt(i);
+        i++;
+        setTimeout(type, speed);
+      } else {
+        element.classList.add('typing-complete');
+        if (callback) {
+          setTimeout(callback, 500);
         }
       }
-      
-      type();
     }
 
-   <script>
+    type();
+  }
 
   window.addEventListener('load', function() {
     const nameElement = document.getElementById('name');
     const descriptionElement = document.getElementById('description');
+
     typeWriter(nameElement, 'Evan Rees', 100, function() {
       nameElement.classList.remove('typewriter');
-      
+
       typeWriter(
         descriptionElement,
         '4th year undergraduate at the University of Wisconsin',
@@ -279,6 +279,7 @@
         function() {
           descriptionElement.classList.remove('typewriter');
           descriptionElement.innerHTML += '<br>';
+
           typeWriter(
             descriptionElement,
             'Incoming Process Improvement Engineer at J.P. Cullen Construction',
@@ -291,6 +292,7 @@
       );
     });
   });
-<script>
+</script>
+
 </body>
 </html>
