@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Experience</title>
+  <title>Education & Skills</title>
   <script src="https://cdn.tailwindcss.com"></script>
 
   <style>
@@ -21,7 +21,6 @@
       position: relative;
     }
 
-    /* Circuit board pattern background */
     body::before {
       content: '';
       position: fixed;
@@ -33,40 +32,20 @@
       opacity: 0.08;
       background-image: 
         linear-gradient(90deg, var(--accent) 1px, transparent 1px),
-        linear-gradient(0deg, var(--accent) 1px, transparent 1px),
-        radial-gradient(circle at 20% 30%, var(--accent) 2px, transparent 2px),
-        radial-gradient(circle at 80% 70%, var(--accent) 2px, transparent 2px),
-        radial-gradient(circle at 40% 80%, var(--accent) 2px, transparent 2px),
-        radial-gradient(circle at 60% 20%, var(--accent) 2px, transparent 2px);
-      background-size: 
-        80px 80px,
-        80px 80px,
-        200px 200px,
-        200px 200px,
-        200px 200px,
-        200px 200px;
-      background-position:
-        0 0,
-        0 0,
-        0 0,
-        0 0,
-        0 0,
-        0 0;
+        linear-gradient(0deg, var(--accent) 1px, transparent 1px);
+      background-size: 80px 80px;
       pointer-events: none;
     }
 
-    /* Content layer */
     .content-layer {
       position: relative;
       z-index: 1;
     }
 
-    /* Solid card backgrounds */
-    .experience-card {
-      background-color: var(--primary) !important;
+    .card {
+      background-color: var(--primary);
     }
 
-    /* Fade-up animation for cards */
     @keyframes fadeUp {
       0% { opacity: 0; transform: translateY(40px); }
       100% { opacity: 1; transform: translateY(0); }
@@ -80,158 +59,134 @@
 
     .text-accent { color: var(--accent); }
     .border-accent { border-color: var(--accent); }
-
-    /* Timeline line */
-    .timeline-line {
-      position: absolute;
-      left: 6px;
-      md:left: 10px;
-      top: 0;
-      width: 2px;
-      background-color: var(--accent);
-      border-radius: 2px;
-      transform-origin: top;
-      height: 0;
-      box-shadow: 0 0 10px var(--accent);
-      transition: height 1s ease-out;
-    }
   </style>
 </head>
+
 <body class="min-h-screen flex flex-col">
 
   <!-- Navbar -->
   <div id="navbar" class="content-layer"></div>
 
-  <main class="content-layer flex-grow max-w-4xl mx-auto px-6 py-16 relative">
+  <main class="content-layer flex-grow max-w-6xl mx-auto px-6 py-16">
 
     <h1 class="text-4xl font-semibold mb-12 text-accent text-center drop-shadow-lg">
-      Experience
+      Education & Skills
     </h1>
 
-    <!-- Timeline line -->
-    <div id="timeline" class="timeline-line left-6 md:left-10"></div>
+    <!-- TWO COLUMN LAYOUT -->
+    <div class="grid md:grid-cols-2 gap-12">
 
-    <!-- Featured Current Position -->
-    <div class="experience-card relative z-10 border border-accent/50 rounded-2xl p-8 mb-16 shadow-[0_0_25px_#0feed9]">
-      <h2 class="text-3xl text-accent font-semibold mb-2">Currently - Senior at the University of Wisconsin</h2>
-      <p class="text-sm italic mb-2 text-[#66a2b2]/80">2022 – May 2026</p>
-      <p class="leading-relaxed">
-        I am studying Industrial & Systems Engineering as well as Mathematics.  Human Factors is my primary focus area,
-        and I also have extensive experience with linear programming modeling.  I am especially interested in the 
-        transportation and emergency services industries.  Outside of class, I enjoy the intramural 
-        sports scene, riding my bike, being with my friends, and eating.
-      </p>
-    </div>
+      <!-- ===================== -->
+      <!-- SKILLS SIDE -->
+      <!-- ===================== -->
+      <div class="space-y-8">
 
-    <!-- Experience Section -->
-    <div class="space-y-12 ml-10 md:ml-16 relative">
+        <!-- Skills Header -->
+        <h2 class="text-3xl text-accent font-semibold mb-4">Skills</h2>
 
-      <!-- Experience Card 1 -->
-      <div class="relative flex items-start fade-up">
-        <!-- Dot -->
-        <div class="absolute -left-6 md:-left-10 mt-2 w-4 h-4 bg-[var(--accent)] rounded-full shadow-[0_0_10px_#0feed9]"></div>
-        <!-- Card -->
-        <div class="experience-card border border-accent/40 rounded-2xl p-6 w-full hover:shadow-[0_0_20px_#0feed9] transition-all duration-300">
-          <h2 class="text-2xl text-accent font-semibold mb-1">President - <a href="https://www.instagram.com/areared/?hl=en" target="_blank" class="underline"> AreaRED</a></h2>
-          <p class="text-sm italic mb-2 text-[#66a2b2]/80">May 2025 - May 2026</p>
-          <p class="leading-relaxed">
-            I was elected leader of the University of Wisconsin Athletics Student Section.
-            This role involves leading weekly club meetings, negotiating with the Athletic Department
-            and sponsors, managing a major student organization's operations, and, most importantly, being an awesome presence at games.
-          </p>
+        <!-- Technical -->
+        <div class="card border border-accent/40 rounded-2xl p-6 fade-up hover:shadow-[0_0_20px_#0feed9] transition">
+          <h3 class="text-xl text-accent mb-3">Technical</h3>
+          <ul class="space-y-1">
+            <li>• Python (Data Analysis, ML)</li>
+            <li>• Julia (Optimization)</li>
+            <li>• R (Statistical Modeling)</li>
+            <li>• SQL</li>
+            <li>• HTML / CSS / Tailwind</li>
+          </ul>
         </div>
+
+        <!-- Engineering -->
+        <div class="card border border-accent/40 rounded-2xl p-6 fade-up hover:shadow-[0_0_20px_#0feed9] transition">
+          <h3 class="text-xl text-accent mb-3">Engineering</h3>
+          <ul class="space-y-1">
+            <li>• Linear Programming</li>
+            <li>• Optimization Modeling</li>
+            <li>• Human Factors Engineering</li>
+            <li>• Experimental Design</li>
+            <li>• Data Visualization</li>
+          </ul>
+        </div>
+
+        <!-- Tools -->
+        <div class="card border border-accent/40 rounded-2xl p-6 fade-up hover:shadow-[0_0_20px_#0feed9] transition">
+          <h3 class="text-xl text-accent mb-3">Tools & Platforms</h3>
+          <ul class="space-y-1">
+            <li>• Excel / VBA</li>
+            <li>• Power BI</li>
+            <li>• Git / GitHub</li>
+            <li>• Tableau</li>
+          </ul>
+        </div>
+
+        <!-- Soft Skills -->
+        <div class="card border border-accent/40 rounded-2xl p-6 fade-up hover:shadow-[0_0_20px_#0feed9] transition">
+          <h3 class="text-xl text-accent mb-3">Leadership & Communication</h3>
+          <ul class="space-y-1">
+            <li>• Team Leadership</li>
+            <li>• Public Speaking</li>
+            <li>• Project Management</li>
+            <li>• Cross-functional Collaboration</li>
+          </ul>
+        </div>
+
       </div>
 
-      <!-- Experience Card 2 -->
-      <div class="relative flex items-start fade-up">
-        <div class="absolute -left-6 md:-left-10 mt-2 w-4 h-4 bg-[var(--accent)] rounded-full shadow-[0_0_10px_#0feed9]"></div>
-        <div class="experience-card border border-accent/40 rounded-2xl p-6 w-full hover:shadow-[0_0_20px_#0feed9] transition-all duration-300">
-          <h2 class="text-2xl text-accent font-semibold mb-1">Operations Management Intern - <a href="https://www.piercemfg.com/" target="_blank" class="underline">Pierce Manufacturing</a></h2>
-          <p class="text-sm italic mb-2 text-[#66a2b2]/80">Summer 2025</p>
-          <p class="leading-relaxed">
-            I interned with Pierce Manufacturing at their Cab and Chassis facility in Neenah, WI, where I learned about production scheduling,
-            large scale electrification, people management, supplier coordination, fully custom production processes, and more.  For them, 
-            I developed a web-based production planning dashboard to greatly simplify production scheduling.  The dashboard automatically updated every morning so a quick glance was all
-            that was needed to plan for the day.  This helped to replace over 1.5 hours of meetings and calls that production supervisors participated in daily when I 
-            started.  The dashboard also featured a machine learning model to predict production defects and allocate time to fix them as needed.
+      <!-- ===================== -->
+      <!-- EDUCATION SIDE -->
+      <!-- ===================== -->
+      <div class="space-y-8">
+
+        <h2 class="text-3xl text-accent font-semibold mb-4">Education</h2>
+
+        <!-- Block 1 -->
+        <div class="card border border-accent/40 rounded-2xl p-6 fade-up hover:shadow-[0_0_20px_#0feed9] transition">
+          <h3 class="text-2xl text-accent font-semibold mb-1">
+            University of Wisconsin–Madison
+          </h3>
+          <p class="text-sm italic mb-2 text-[#66a2b2]/80">
+            2022 – May 2026
+          </p>
+          <p>
+            B.S. Industrial & Systems Engineering<br/>
+            B.S. Mathematics
           </p>
         </div>
+
+        <!-- Block 2 -->
+        <div class="card border border-accent/40 rounded-2xl p-6 fade-up hover:shadow-[0_0_20px_#0feed9] transition">
+          <h3 class="text-2xl text-accent font-semibold mb-1">
+            Relevant Coursework
+          </h3>
+          <p class="leading-relaxed">
+            Linear Programming, Stochastic Models, Human Factors Engineering,
+            Simulation Modeling, Engineering Statistics, Optimization,
+            Machine Learning
+          </p>
+        </div>
+
+        <!-- Block 3 -->
+        <div class="card border border-accent/40 rounded-2xl p-6 fade-up hover:shadow-[0_0_20px_#0feed9] transition">
+          <h3 class="text-2xl text-accent font-semibold mb-1">
+            Certifications / Honors
+          </h3>
+          <p class="leading-relaxed">
+            Dean’s List, Academic Scholarships, Relevant Certifications (add yours here)
+          </p>
+        </div>
+
       </div>
 
-      <!-- Experience Card 3 -->
-      <div class="relative flex items-start fade-up">
-        <div class="absolute -left-6 md:-left-10 mt-2 w-4 h-4 bg-[var(--accent)] rounded-full shadow-[0_0_10px_#0feed9]"></div>
-        <div class="experience-card border border-accent/40 rounded-2xl p-6 w-full hover:shadow-[0_0_20px_#0feed9] transition-all duration-300">
-          <h2 class="text-2xl text-accent font-semibold mb-1">Undergraduate Research Assistant - <a href="https://neuroergolab.org/" target="_blank" class="underline">Neuroergonomics Lab</a></h2>
-          <p class="text-sm italic mb-2 text-[#66a2b2]/80">Spring 2025</p>
-          <p class="leading-relaxed">
-            I worked with 
-            <a href="https://nimrobotics.com/" target="_blank" class="underline">Aakash Yadav</a>, 
-            <a href="https://spenceleyyy.github.io/index.html#about" target="_blank" class="underline">Rob Spenceley</a>, 
-            and <a href="https://engineering.wisc.edu/directory/profile/ranjana-mehta/" target="_blank" class="underline">Dr. Ranjana Mehta</a> 
-            on their Human-Robot Interaction experiments for the semester.
-            My role was mainly focused on the human subject experiment sessions, where I completed extensive bioinstrumentation, measurement, 
-            and procedural steps for each one while making sure they were comfortable and having some fun.  I also worked on stress 
-            testing the lab equipment, data analysis, and visualization for conference and symposium style presentations.
-          </p>
-        </div>
-      </div>
-
-      <!-- Experience Card 4 -->
-      <div class="relative flex items-start fade-up">
-        <div class="absolute -left-6 md:-left-10 mt-2 w-4 h-4 bg-[var(--accent)] rounded-full shadow-[0_0_10px_#0feed9]"></div>
-        <div class="experience-card border border-accent/40 rounded-2xl p-6 w-full hover:shadow-[0_0_20px_#0feed9] transition-all duration-300">
-          <h2 class="text-2xl text-accent font-semibold mb-1">Field Operations Assistant - <a href="https://www.milb.com/hartford" target="_blank" class="underline">Hartford Yard Goats Baseball</a></h2>
-          <p class="text-sm italic mb-2 text-[#66a2b2]/80">Summers of 2023 & 2024</p>
-          <p class="leading-relaxed">
-            Under the direction of nationally acclaimed groundskeepers Kyle Calhoun and Matt Piersanti, I led mowing, field painting, 
-            and turf recovery operations at Hartford, CT's Dunkin' Park.  I also led and instructed a staff of six skilled game day employees who
-            I trained and worked with on mound prep, track and infield dragging, foul and batter's box painting, field security, and more.
-            The facility won multiple awards during my time there, including 2024 MiLB Field of the Year and Ballpark Digest Ballpark of the Year.
-          </p>
-        </div>
-      </div>
-
-      <!-- Experience Card 5 -->
-      <div class="relative flex items-start fade-up">
-        <div class="absolute -left-6 md:-left-10 mt-2 w-4 h-4 bg-[var(--accent)] rounded-full shadow-[0_0_10px_#0feed9]"></div>
-        <div class="experience-card border border-accent/40 rounded-2xl p-6 w-full hover:shadow-[0_0_20px_#0feed9] transition-all duration-300">
-          <h2 class="text-2xl text-accent font-semibold mb-1">Greenskeeper - <a href="https://fairviewfarmgc.com/" target="_blank" class="underline">Fairview Farm Golf Course</a></h2>
-          <p class="text-sm italic mb-2 text-[#66a2b2]/80">Summers 2018 - 2022</p>
-          <p class="leading-relaxed">
-            I worked as a Greenskeeper for four years at one of Connecticut's top public courses.  I started before I had a driver's license
-            at 15 years old, and eventually worked my way up from bunker care and renovations to mowing greens, tees, approaches, rough, and fairways,
-            as well as numerous other turf projects.  I also learned a lot about tree care, as the area got two major hurricanes with significant
-            winds and timber damage during my time.
-          </p>
-        </div>
-      </div>
-
-            <!-- Experience Card 6 -->
-      <div class="relative flex items-start fade-up">
-        <div class="absolute -left-6 md:-left-10 mt-2 w-4 h-4 bg-[var(--accent)] rounded-full shadow-[0_0_10px_#0feed9]"></div>
-        <div class="experience-card border border-accent/40 rounded-2xl p-6 w-full hover:shadow-[0_0_20px_#0feed9] transition-all duration-300">
-          <h2 class="text-2xl text-accent font-semibold mb-1">Farm Staff - <a href="https://www.maplehollowtreefarm.com/" target="_blank" class="underline">Maple Hallow Tree Farm</a></h2>
-          <p class="text-sm italic mb-2 text-[#66a2b2]/80">Winter 2020 - 2022</p>
-          <p class="leading-relaxed">
-            The holiday season brought me to Maple Hollow tree farm, a local establishment where I managed the parking lot.  The farm's demand
-            constantly exceeeded the space for parking, so my duty was to manage the lot and long queue efficiently, sometimes even having to
-            turn customers away to avoid a total road shutdown.  Someday, I aspire to have a tree farm of my own.
-          </p>
-        </div>
-      </div>
-      
     </div>
   </main>
 
   <script>
-    // Load shared navbar
+    // Navbar load
     fetch('nav.html')
       .then(res => res.text())
-      .then(html => document.getElementById('navbar').innerHTML = html)
-      .catch(err => console.error('Navbar load error:', err));
+      .then(html => document.getElementById('navbar').innerHTML = html);
 
-    // Fade-in animation observer
+    // Fade animation
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) entry.target.style.animationPlayState = "running";
@@ -242,20 +197,6 @@
       el.style.animationPlayState = "paused";
       observer.observe(el);
     });
-
-    // Scroll-based timeline draw effect
-    const timeline = document.getElementById('timeline');
-    const docHeight = document.body.scrollHeight - window.innerHeight;
-
-    function updateTimeline() {
-      const scrollY = window.scrollY;
-      const percent = Math.min(scrollY / docHeight, 1);
-      const fullHeight = document.body.scrollHeight - 200;
-      timeline.style.height = (percent * fullHeight) + 'px';
-    }
-
-    window.addEventListener('scroll', updateTimeline);
-    updateTimeline();
   </script>
 
 </body>
