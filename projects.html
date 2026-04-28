@@ -127,16 +127,19 @@
       <div class="flex-1 md:pr-8">
         <h2 class="text-3xl font-semibold text-accent mb-3">Optimal Location Planning for Madison, WI Firehouses</h2>
         <p class="text-secondary leading-relaxed">
-          ISYE 524- My partner and I created an extensive linear program (over x variables) to determine 14 optimal locations for the Madison, Wisconsin fire department
-          to place their stations.  The model considered incident volume, traffic patterns, structure sizes and hazard levels, and locations of other stations
-          and sought to minimize response time across the city.  The final report will be linked upon completion.
+          ISYE 524- My partner and I created an extensive set covering style linear program (over 3900 variables) to determine 14 optimal locations for the Madison, Wisconsin fire department
+          to place their stations.  The model considered incident volume, traffic flows, structure sizes and hazard levels, and locations of other stations
+          and sought to minimize average response time across the city.  Our resulting model increased 5 minute response times from a current 56% to 82% across
+          the city, without adding any additional stations.  Average distance to the nearest station, weighted based on demand, dropped from 2.5 to only 1.7 miles.  This 
+          represents an overall 25% coverage improvement across the city of Madison.  The final document and model can be found 
+          <a href="https://drive.google.com/file/d/1v9u6NuTOmBBw7AWElFOF55ekl3cVW-mz/view?usp=sharing" target="_blank" class="underline">here</a>.
           
             
         </p>
       </div>
       <!-- Image -->
       <div class="flex-1 mt-6 md:mt-0">
-        <img src="" alt="image placeholder"
+        <img src="images/optimal.png" alt="image placeholder"
              class="rounded-xl shadow-lg w-full object-cover">
       </div>
     </div>
